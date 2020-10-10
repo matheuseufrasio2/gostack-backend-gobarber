@@ -6,7 +6,6 @@ import CreateUserService from '@modules/users/services/CreateUserService';
 export default class SessionsController {
   public async create(request: Request, response: Response): Promise<Response> {
     const { name, email, password } = request.body;
-
     try {
       const createUser = container.resolve(CreateUserService);
       const user = await createUser.execute({
@@ -15,6 +14,7 @@ export default class SessionsController {
         password,
       });
       delete user.password;
+
       return response.json(user);
     } catch (error) {
       // só para teste, retornar o objeto de erro inteiro
