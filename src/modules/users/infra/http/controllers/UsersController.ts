@@ -3,7 +3,7 @@ import { Request, Response } from 'express';
 import { container } from 'tsyringe';
 import CreateUserService from '@modules/users/services/CreateUserService';
 
-export default class SessionsController {
+export default class UsersController {
   public async create(request: Request, response: Response): Promise<Response> {
     const { name, email, password } = request.body;
     try {
@@ -13,6 +13,7 @@ export default class SessionsController {
         email,
         password,
       });
+
       delete user.password;
 
       return response.json(user);
