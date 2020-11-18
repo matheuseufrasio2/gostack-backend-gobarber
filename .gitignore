@@ -2,3 +2,9 @@ node_modules
 
 temp/*
 !temp/.gitkeep
+.vscode/
+build/
+coverage
+
+.env
+ormconfig.json
